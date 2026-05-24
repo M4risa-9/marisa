@@ -1,0 +1,125 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=sunburst-visualMap&code=lZRdT9NQGMfv-RRNiOkNWbbCcEC8UHR33sglcHGAok1KS_pCQEPSociK4CQyt2yTTZLplrgMnLgxq_sw9px2V_sKntPTveB8o8nOznn2PP__r8_TbgMozArQAHOLmR9hmCf4wzASWOOnGRaZZWgV2DEvtipL2pzwGMdDE0EaWn4kiCsKL017peSi5YMS9XPXSML6J5Qz4UET5vMLEjw9gfuFdqoEmymUPGvvJXwLcm0AUceF4fHAZDe43d0Mqbv1EhWFiSN4nhyWCXGB8D9VKA_aN1Cu-sOIuRfP2ntHTsVE-0m4W1yQ7EbTbWXthoEqRdoSZL6G-abzzhh2vBkI9bi970W8et5XWmu33qKDGLysOaXaFfj_6Cmsl2G26bw8Iz1t7MBckzAedm-DQA9zcb0-_IUKHX9xrPI1SHZr7VQFe7tmlc4Tk1hpePAGpU5hJU1jvxlLIDJMM7I4MyKva4Is4WeRWGmCJuJk6qrxmxp25ILcpG3F7EYGxdNOstg2TPSi3LHiqFBHuY_0J3hYQNXjjmX6zqq-5JfbjQrMfnNbJ-3jmPM14b4qwsOEbWU6VgYrh-HlZ_t7C8bLmJpYGDE6G_R0Fz6_QO933A9xX1OT1_F9-C-CyK9i9e6JeM1pW332_qvDhfGx23of6w-poQk_tZu-Iag6EO8D7Ou3ZGudDGEZlwiSLuuqj7Ym4Jn5LGtgk4AFvQMNCdIDID3sOeJBy6Ks4Cmzo1x0anw2wo4x7Ojte7MTkai3jUbv3gnP0u1UJDLJsWReA2Qqrwi8-guWqktLuqJqPhT5j5n2VnpWwIqg45r5INadCt5gF_1WgiVe7LMpsgY0Ikfygdh7lAZb2oMh6_bMTw&enc=deflate
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/echarts-gl/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/echarts-stat/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/echarts-graph-modularity/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    
+var data = [
+  {
+    name: '扩张',
+    fontSize: 140,
+    children: [
+      {
+        name: '深耕已有区域\n增加门店数量',
+        value: 53.6,
+      },
+      {
+        name: '跨区域发展',
+        value: 12.5
+      },
+      {
+        name: '增加技术、资金等投入\n为进一步扩张打基础',
+        value: 7.1,
+      }
+    ]
+  },
+  {
+    name: '保持平稳发展',
+    children: [
+      {
+        name: '巩固现有市场\n不增加投入',
+        value: 25
+      }
+    ]
+  },
+  {
+    name: '收缩',
+    children: [
+      {
+        name: '关闭不良门店\n优化既存门店',
+        value: 1.8
+      }
+    ]
+  }
+];
+option = {
+  title: {
+    text: '2026企业战略选择（样本企业占比）',
+    subtext: '中国连锁经营协会：2025年便利店业态发展情况概览',
+    top: 10,
+    left: 10,
+    textStyle: {
+    fontSize: 25   
+  },
+  subtextStyle: {
+    fontSize: 14   
+  }
+  },
+  visualMap: {
+    type: 'continuous',
+    min: 0,
+    max: 100
+    ,
+    inRange: {
+      color: ['#2F93C8', '#AEC48F', '#FFDB5C', '#F98862']
+    }
+  },
+  series: {
+    type: 'sunburst',
+    data: data,
+    radius: [0, '90%'],
+    label: {
+      rotate: 'radial',
+      fontSize: 25
+    }
+    }
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
